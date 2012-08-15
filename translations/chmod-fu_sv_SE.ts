@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="sv_SE">
+<context>
+    <name>AboutPage</name>
+    <message>
+        <source>About</source>
+        <translation>Om</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Stäng</translation>
+    </message>
+</context>
+<context>
+    <name>AppMenu</name>
+    <message>
+        <source>About</source>
+        <translation>Om</translation>
+    </message>
+    <message>
+        <source>Man page</source>
+        <translation>Man sida</translation>
+    </message>
+</context>
+<context>
+    <name>Attributions</name>
+    <message>
+        <source>Attributions</source>
+        <translation>Attribuering</translation>
+    </message>
+    <message>
+        <source>by %1</source>
+        <translation>av %1</translation>
+    </message>
+</context>
+<context>
+    <name>FileModeView</name>
+    <message>
+        <source>User</source>
+        <translation>Användare</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Grupp</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation>Övriga</translation>
+    </message>
+</context>
+<context>
+    <name>ManPage</name>
+    <message>
+        <source>Man page</source>
+        <translation>Man-sida</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Stäng</translation>
+    </message>
+</context>
+<context>
+    <name>OctalModeView</name>
+    <message>
+        <source>Octal</source>
+        <translation>Octal</translation>
+    </message>
+</context>
+<context>
+    <name>PermissionView</name>
+    <message>
+        <source>Read</source>
+        <translation>Läsa</translation>
+    </message>
+    <message>
+        <source>Write</source>
+        <translation>Skriva</translation>
+    </message>
+    <message>
+        <source>Execute</source>
+        <translation>Köra</translation>
+    </message>
+</context>
+<context>
+    <name>SpecialModesView</name>
+    <message>
+        <source>Special Modes</source>
+        <translation>Specialvärde</translation>
+    </message>
+    <message>
+        <source>Setuid</source>
+        <translation>Setuid</translation>
+    </message>
+    <message>
+        <source>Setgid</source>
+        <translation>Setgid</translation>
+    </message>
+    <message>
+        <source>Sticky</source>
+        <translation>Klistrig</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Basic</source>
+        <translation>Enkel</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Avancerat</translation>
+    </message>
+</context>
+</TS>
