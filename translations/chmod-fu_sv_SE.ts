@@ -64,7 +64,7 @@
     <name>OctalModeView</name>
     <message>
         <source>Octal</source>
-        <translation>Octal</translation>
+        <translation>Oktal</translation>
     </message>
 </context>
 <context>
