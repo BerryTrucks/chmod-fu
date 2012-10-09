@@ -56,7 +56,6 @@ Page {
 
     actions: [
         InvokeActionItem {
-            title: "Share"
             data: "$> chmod " + (appSettings.showAdvancedMode ? fileModeView.fileMode.specialModes.octal : "") +
                     fileModeView.fileMode.userMode.octal + fileModeView.fileMode.groupMode.octal +
                     fileModeView.fileMode.otherMode.octal 
