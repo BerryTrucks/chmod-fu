@@ -45,7 +45,7 @@ Container {
         multiline: true
         
         text: "" +
-        "chmod-fu v1.1.0\n" +
+        "chmod-fu v1.1.1\n" +
         "Copyright (c) 2012 Mario Boikov"
     }
 }
