@@ -30,7 +30,19 @@ Page {
             }
             title: qsTr("Man page")
         }
-        
+
+        actions: [        
+	        ActionItem {
+	            id: advancedModeSwitch
+	
+	            title: appSettings.showAdvancedMode ? qsTr("Basic") : qsTr("Advanced")
+	            imageSource: "asset:///images/transfer_white.png"
+	            ActionBar.placement: ActionBarPlacement.OnBar
+	
+	            onTriggered: appSettings.showAdvancedMode = !appSettings.showAdvancedMode 
+	        }
+        ]
+
         settingsAction: SettingsActionItem {
             onTriggered: aboutSheet.open()
             title: qsTr("About")
@@ -43,14 +55,18 @@ Page {
     }
 
     actions: [
-        ActionItem {
-            id: advancedModeSwitch
+        InvokeActionItem {
+            title: "Share"
+            data: "$> chmod " + (appSettings.showAdvancedMode ? fileModeView.fileMode.specialModes.octal : "") +
+                    fileModeView.fileMode.userMode.octal + fileModeView.fileMode.groupMode.octal +
+                    fileModeView.fileMode.otherMode.octal 
 
-            title: appSettings.showAdvancedMode ? qsTr("Basic") : qsTr("Advanced")
-            imageSource: "asset:///images/transfer_white.png"
             ActionBar.placement: ActionBarPlacement.OnBar
 
-            onTriggered: appSettings.showAdvancedMode = !appSettings.showAdvancedMode 
+            query {
+                mimeType: "text/plain"
+                invokeActionId: "bb.action.SHARE"
+            }
         }
     ]
 
@@ -87,6 +103,8 @@ Page {
         background: backgroundDefinition.imagePaint
 
         FileModeView {
+            id: fileModeView
+
             topPadding: 20
             leftPadding: 10
             rightPadding: leftPadding
