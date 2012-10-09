@@ -13,17 +13,6 @@
     </message>
 </context>
 <context>
-    <name>AppMenu</name>
-    <message>
-        <source>About</source>
-        <translation>Om</translation>
-    </message>
-    <message>
-        <source>Man page</source>
-        <translation>Man sida</translation>
-    </message>
-</context>
-<context>
     <name>Attributions</name>
     <message>
         <source>Attributions</source>
@@ -64,7 +53,11 @@
     <name>OctalModeView</name>
     <message>
         <source>Octal</source>
-        <translation>Octal</translation>
+        <translation>Oktal</translation>
+    </message>
+    <message>
+        <source>Pick value</source>
+        <translation>Välj värde</translation>
     </message>
 </context>
 <context>
@@ -110,6 +103,14 @@
     <message>
         <source>Advanced</source>
         <translation>Avancerat</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation>Om</translation>
+    </message>
+    <message>
+        <source>Man page</source>
+        <translation>Man-sida</translation>
     </message>
 </context>
 </TS>

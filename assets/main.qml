@@ -22,19 +22,51 @@ import "manpage" as ManPage
 Page {
     id: mainPage
 
+    Menu.definition: MenuDefinition {
+        helpAction: HelpActionItem {
+            onTriggered: {
+                console.log("Hello world")
+                manPageSheet.open()
+            }
+            title: qsTr("Man page")
+        }
+
+        actions: [        
+	        ActionItem {
+	            id: advancedModeSwitch
+	
+	            title: appSettings.showAdvancedMode ? qsTr("Basic") : qsTr("Advanced")
+	            imageSource: "asset:///images/transfer_white.png"
+	            ActionBar.placement: ActionBarPlacement.OnBar
+	
+	            onTriggered: appSettings.showAdvancedMode = !appSettings.showAdvancedMode 
+	        }
+        ]
+
+        settingsAction: SettingsActionItem {
+            onTriggered: aboutSheet.open()
+            title: qsTr("About")
+            imageSource: "asset:///images/ninja_white.png"
+        }
+    }
+
     titleBar: TitleBar {
-        title: "chmod-fu"
+        title: " chmod-fu" // Remove space when TitleBar adds left padding 
     }
 
     actions: [
-        ActionItem {
-            id: advancedModeSwitch
+        InvokeActionItem {
+            title: "Share"
+            data: "$> chmod " + (appSettings.showAdvancedMode ? fileModeView.fileMode.specialModes.octal : "") +
+                    fileModeView.fileMode.userMode.octal + fileModeView.fileMode.groupMode.octal +
+                    fileModeView.fileMode.otherMode.octal 
 
-            title: appSettings.showAdvancedMode ? qsTr("Basic") : qsTr("Advanced")
-            imageSource: "asset:///images/transfer_white.png"
             ActionBar.placement: ActionBarPlacement.OnBar
 
-            onTriggered: appSettings.showAdvancedMode = !appSettings.showAdvancedMode 
+            query {
+                mimeType: "text/plain"
+                invokeActionId: "bb.action.SHARE"
+            }
         }
     ]
 
@@ -49,44 +81,39 @@ Page {
             id: appSettings
         },
         
-	    AppMenu {
-	        infoEnabled: !aboutSheet.visible
-	        manPageEnabled: !manPageSheet.visible
-
-	        onInfoRequested: aboutSheet.visible = true
-	        onManPageRequested: manPageSheet.visible = true
-	    },
-
         Sheet {
             id: aboutSheet
             content: About.AboutPage {
                 contentBackground: backgroundDefinition.imagePaint
-                onCloseClicked: aboutSheet.visible = false
+                onCloseClicked: aboutSheet.close()
             }
         },
 
         Sheet {
             id: manPageSheet
             content: ManPage.ManPage {
-                onCloseClicked: manPageSheet.visible = false
+                onCloseClicked: manPageSheet.close()
             }
         }
     ]
 
     content: Container {
-        layout: StackLayout {
-            topPadding: 20
-            leftPadding: 10
-            rightPadding: leftPadding
-        }
 
+        layout: DockLayout {}
         background: backgroundDefinition.imagePaint
 
         FileModeView {
+            id: fileModeView
+
+            topPadding: 20
+            leftPadding: 10
+            rightPadding: leftPadding
+            bottomPadding: topPadding
 
 	        fileMode: FileMode {}
 
 	        showSpecialModes: appSettings.showAdvancedMode
 	    }
+
     }
 }

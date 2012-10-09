@@ -29,7 +29,7 @@ Some API/technologies used creating this application:
 
   - TitleBar with accept button when the Page is used as a Sheet
 
-Hope this application will be useful to someone since I'm already mastering the art of s*chmod-fu* :)
+Hope this application will be useful to someone since I'm already mastering the art of *chmod-fu* :)
 
 
 Attributions

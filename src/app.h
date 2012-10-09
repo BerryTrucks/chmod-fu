@@ -28,7 +28,7 @@ class App : public QObject
     Q_OBJECT
 
 public:
-    App();
+    App(QObject *parent=0);
 
 };
 
