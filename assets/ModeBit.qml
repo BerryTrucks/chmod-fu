@@ -22,18 +22,13 @@ Container {
     Label {
         id: title
 
-        layoutProperties: StackLayoutProperties {
-            horizontalAlignment: HorizontalAlignment.Center
-        }
-        
+        horizontalAlignment: HorizontalAlignment.Center
         textStyle.base: SystemDefaults.TextStyles.SubtitleText
     }
 
     CheckBox {
         id: checkbox
 
-        layoutProperties: StackLayoutProperties {
-            horizontalAlignment: HorizontalAlignment.Center
-        }
+        horizontalAlignment: HorizontalAlignment.Center
     }
 }

@@ -13,17 +13,6 @@
     </message>
 </context>
 <context>
-    <name>AppMenu</name>
-    <message>
-        <source>Man page</source>
-        <translation>Man page</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation>About</translation>
-    </message>
-</context>
-<context>
     <name>Attributions</name>
     <message>
         <source>Attributions</source>
@@ -65,6 +54,10 @@
     <message>
         <source>Octal</source>
         <translation>Octal</translation>
+    </message>
+    <message>
+        <source>Pick value</source>
+        <translation>Pick value</translation>
     </message>
 </context>
 <context>
@@ -110,6 +103,14 @@
     <message>
         <source>Advanced</source>
         <translation>Advanced</translation>
+    </message>
+    <message>
+        <source>Man page</source>
+        <translation>Man page</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation>About</translation>
     </message>
 </context>
 </TS>

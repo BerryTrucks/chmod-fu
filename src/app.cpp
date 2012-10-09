@@ -18,7 +18,9 @@
 #include <bb/cascades/AbstractPane>
 #include <bb/cascades/TitleBar>
 
-#include "AppMenu.h"
+#include <bb/system/SystemUiResult>
+#include <bb/system/SystemListDialog>
+
 #include "AppSettings.h"
 #include "FileMode.h"
 
@@ -26,22 +28,23 @@
 
 using namespace bb::cascades;
 
-App::App()
+App::App(QObject *parent) : QObject(parent)
 {
 	QCoreApplication::setOrganizationName(QLatin1String("BeBlue.org"));
 	QCoreApplication::setOrganizationDomain(QLatin1String("org.beblue.chmodfu"));
 	QCoreApplication::setApplicationName(QLatin1String("chmod-fu"));
 	QCoreApplication::setApplicationVersion(QLatin1String("1.0.0"));
 
-	qmlRegisterType<AppMenu>("org.beblue.chmodfu", 1, 0, "AppMenu");
+	qmlRegisterUncreatableType<bb::system::SystemUiResult>("org.beblue.chmodfu", 1, 0, "SystemUiResult", "Enum");
+	qmlRegisterType<bb::system::SystemListDialog>("org.beblue.chmodfu", 1, 0, "SystemListDialog");
+
 	qmlRegisterType<AppSettings>("org.beblue.chmodfu", 1, 0, "AppSettings");
 
 	qmlRegisterType<FileMode>("org.beblue.chmodfu", 1, 0, "FileMode");
     qmlRegisterType<SpecialModes>("org.beblue.chmodfu", 1, 0, "SpecialModes");
     qmlRegisterType<Permission>("org.beblue.chmodfu", 1, 0, "Permission");
 
-	QmlDocument *qml = QmlDocument::create("main.qml");
-
-    AbstractPane *root = qml->createRootNode<AbstractPane>();
-    Application::setScene(root);
+	QmlDocument *qml = QmlDocument::create("asset:///main.qml");
+	AbstractPane *root = qml->createRootObject<AbstractPane>();
+    Application::instance()->setScene(root);
 }
