@@ -3,9 +3,11 @@ TARGET = chmod-fu
 
 CONFIG += qt warn_on debug_and_release cascades
 
-INCLUDEPATH += ../src
+INCLUDEPATH += ../src $(QNX_TARGET)/usr/include/bb/system
 SOURCES += ../src/*.cpp
 HEADERS += ../src/*.h
+DEPENDPATH += ${QNX_TARGET}/usr/include/bb/system
+LIBS += -lbbsystem
 
 lupdate_inclusion {
     SOURCES += ../assets/*.qml

@@ -18,31 +18,32 @@ import bb.cascades 1.0
 Container {
 
     layout: StackLayout {
-        leftPadding: 10
-        rightPadding: leftPadding
-        layoutDirection: LayoutDirection.LeftToRight
+        orientation: LayoutOrientation.LeftToRight
     }
 
+    leftPadding: 10
+    rightPadding: leftPadding
+
     ImageView {
-
-        layoutProperties: StackLayoutProperties {
-            verticalAlignment: VerticalAlignment.Center
-        }
-
+        verticalAlignment: VerticalAlignment.Center
         imageSource: "asset:///images/icon.png"
     }
 
-    TextArea {
+    Label {
+
+        leftPadding: 10
 
         layoutProperties: StackLayoutProperties {
-            verticalAlignment: VerticalAlignment.Center
             spaceQuota: 1
         }
+
+        verticalAlignment: VerticalAlignment.Center
+
         textStyle.base: SystemDefaults.TextStyles.BodyText
-        textStyle.alignment: TextAlignment.Left            
+        textStyle.textAlign: TextAlign.Left            
 
-        editable: false
-
+        multiline: true
+        
         text: "" +
         "chmod-fu v1.0.0\n" +
         "Copyright (c) 2012 Mario Boikov"

@@ -22,8 +22,24 @@ import "manpage" as ManPage
 Page {
     id: mainPage
 
+    Menu.definition: MenuDefinition {
+        helpAction: HelpActionItem {
+            onTriggered: {
+                console.log("Hello world")
+                manPageSheet.open()
+            }
+            title: qsTr("Man page")
+        }
+        
+        settingsAction: SettingsActionItem {
+            onTriggered: aboutSheet.open()
+            title: qsTr("About")
+            imageSource: "asset:///images/ninja_white.png"
+        }
+    }
+
     titleBar: TitleBar {
-        title: "chmod-fu"
+        title: " chmod-fu" // Remove space when TitleBar adds left padding 
     }
 
     actions: [
@@ -49,44 +65,37 @@ Page {
             id: appSettings
         },
         
-	    AppMenu {
-	        infoEnabled: !aboutSheet.visible
-	        manPageEnabled: !manPageSheet.visible
-
-	        onInfoRequested: aboutSheet.visible = true
-	        onManPageRequested: manPageSheet.visible = true
-	    },
-
         Sheet {
             id: aboutSheet
             content: About.AboutPage {
                 contentBackground: backgroundDefinition.imagePaint
-                onCloseClicked: aboutSheet.visible = false
+                onCloseClicked: aboutSheet.close()
             }
         },
 
         Sheet {
             id: manPageSheet
             content: ManPage.ManPage {
-                onCloseClicked: manPageSheet.visible = false
+                onCloseClicked: manPageSheet.close()
             }
         }
     ]
 
     content: Container {
-        layout: StackLayout {
-            topPadding: 20
-            leftPadding: 10
-            rightPadding: leftPadding
-        }
 
+        layout: DockLayout {}
         background: backgroundDefinition.imagePaint
 
         FileModeView {
+            topPadding: 20
+            leftPadding: 10
+            rightPadding: leftPadding
+            bottomPadding: topPadding
 
 	        fileMode: FileMode {}
 
 	        showSpecialModes: appSettings.showAdvancedMode
 	    }
+
     }
 }

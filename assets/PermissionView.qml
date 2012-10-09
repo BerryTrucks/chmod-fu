@@ -24,7 +24,7 @@ HeaderContainer {
     Container {
 
         layout: StackLayout {
-            layoutDirection: LayoutDirection.LeftToRight
+            orientation: LayoutOrientation.LeftToRight
         }
 
         ModeBit {

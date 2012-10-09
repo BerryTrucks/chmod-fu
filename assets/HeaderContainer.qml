@@ -24,9 +24,7 @@ Container {
 
         bottomMargin: 0
 
-        layoutProperties: StackLayoutProperties {
-            horizontalAlignment: HorizontalAlignment.Center
-        }
+        horizontalAlignment: HorizontalAlignment.Center
 
         textStyle.base: SystemDefaults.TextStyles.BodyText
         textStyle.fontWeight: FontWeight.Bold

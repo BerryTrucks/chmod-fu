@@ -18,19 +18,14 @@ import bb.cascades 1.0
 Container {
 
     Container {
-
-        layout: StackLayout {
-            topPadding: 70
-            leftPadding: 10           
-        }
+        topPadding: 70
+        leftPadding: 10           
 
         Label {
             text: qsTr("Attributions")
             textStyle.base: SystemDefaults.TextStyles.TitleText
             
-            layoutProperties: StackLayoutProperties {
-                horizontalAlignment: HorizontalAlignment.Center
-            }
+            horizontalAlignment: HorizontalAlignment.Center
         }
     }
 
@@ -38,8 +33,6 @@ Container {
 
         dataModel: XmlDataModel { source: "attributions.xml" }
         
-        selectionMode: SelectionMode.None
-
         listItemComponents: [
             ListItemComponent {
                 type: "item"

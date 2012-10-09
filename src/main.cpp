@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 #include <bb/cascades/Application>
+
 #include <QtCore/QLocale>
 #include <QtCore/QTranslator>
 
 #include "app.h"
 
-using ::bb::cascades::Application;
+using namespace bb::cascades;
 
 int main(int argc, char **argv)
 {

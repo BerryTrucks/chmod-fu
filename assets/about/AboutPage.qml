@@ -35,9 +35,7 @@ Page {
     content: Container {
         id: container
 
-        layout: StackLayout {
-            topPadding: 20
-        }
+        topPadding: 20
 
         Copyright {
         }

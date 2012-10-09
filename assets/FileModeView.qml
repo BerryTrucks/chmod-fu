@@ -23,46 +23,57 @@ Container {
 
     property FileMode fileMode
 
-    SpecialModesView {
-        bottomMargin: 20
-        visible: showSpecialModes
-
-        specialModes: fileMode.specialModes
+    horizontalAlignment: HorizontalAlignment.Fill
+    verticalAlignment: VerticalAlignment.Fill
+    layout: DockLayout {
     }
 
-    PermissionView {
-        id: userMode
+    Container {
+        horizontalAlignment: HorizontalAlignment.Fill
+        verticalAlignment: VerticalAlignment.Top
 
-        bottomMargin: 20
-
-        title: qsTr("User")
-
-        permission: fileMode.userMode
-    }
-
-    PermissionView {
-        id: groupMode
-
-        bottomMargin: 20
-
-        title: qsTr("Group")        
-
-        permission: fileMode.groupMode
-    }
-
-    PermissionView {
-        id: otherMode
-
-        bottomMargin: 20
-
-        title: qsTr("Other")
-
-        permission: fileMode.otherMode
+	    SpecialModesView {
+	        bottomMargin: 20
+	        visible: showSpecialModes
+	
+	        specialModes: fileMode.specialModes
+	    }
+	
+	    PermissionView {
+	        id: userMode
+	
+	        bottomMargin: 20
+	
+	        title: qsTr("User")
+	
+	        permission: fileMode.userMode
+	    }
+	
+	    PermissionView {
+	        id: groupMode
+	
+	        bottomMargin: 20
+	
+	        title: qsTr("Group")        
+	
+	        permission: fileMode.groupMode
+	    }
+	
+	    PermissionView {
+	        id: otherMode
+	
+	        bottomMargin: 20
+	
+	        title: qsTr("Other")
+	
+	        permission: fileMode.otherMode
+	    }
     }
 
     OctalModeView {
+        horizontalAlignment: HorizontalAlignment.Fill
+        verticalAlignment: VerticalAlignment.Bottom
         showSpecialModes: root.showSpecialModes
         fileMode: root.fileMode
     }
-
 }

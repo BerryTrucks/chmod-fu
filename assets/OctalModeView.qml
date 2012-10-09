@@ -24,61 +24,54 @@ HeaderContainer {
     property alias showSpecialModes: specialModesOctal.visible
 
     title: qsTr("Octal")
-    
+
     Container {
         layout: StackLayout {
-            layoutDirection: LayoutDirection.LeftToRight
+            orientation: LayoutOrientation.LeftToRight
         }
 
-        OctalDropDown {
+        Button {
             id: specialModesOctal
-
-            visible: false
-
-            layoutProperties: StackLayoutProperties {
-                verticalAlignment: VerticalAlignment.Center
-                spaceQuota: 1
-            }
-
-            selectedIndex: fileMode.specialModes.octal
-            onSelectedIndexChanged: fileMode.specialModes.octal = selectedIndex
+            text: fileMode.specialModes.octal
+            onClicked: listDialog.execDialog(fileMode.specialModes)
         }
 
-        OctalDropDown {
-            id: userModeOctal
-
-            layoutProperties: StackLayoutProperties {
-                verticalAlignment: VerticalAlignment.Center
-                spaceQuota: 1
-            }
-
-            selectedIndex: fileMode.userMode.octal
-            onSelectedIndexChanged: fileMode.userMode.octal = selectedIndex
+        Button {
+            id: userModeButton
+            text: fileMode.userMode.octal
+            onClicked: listDialog.execDialog(fileMode.userMode)
         }
 
-        OctalDropDown {
-            id: groupModeOctal
-
-            layoutProperties: StackLayoutProperties {
-                verticalAlignment: VerticalAlignment.Center
-                spaceQuota: 1
-            }
-            
-            selectedIndex: fileMode.groupMode.octal
-            onSelectedIndexChanged: fileMode.groupMode.octal = selectedIndex
+        Button {
+            text: fileMode.groupMode.octal
+            onClicked: listDialog.execDialog(fileMode.groupMode)
         }
 
-        OctalDropDown {
-            id: otherModeOctal
-
-            layoutProperties: StackLayoutProperties {
-                verticalAlignment: VerticalAlignment.Center
-                spaceQuota: 1
-            }
-            
-            selectedIndex: fileMode.otherMode.octal
-            onSelectedIndexChanged: fileMode.otherMode.octal = selectedIndex
+        Button {
+            text: fileMode.otherMode.octal
+            onClicked: listDialog.execDialog(fileMode.otherMode)
         }
-
+        
     }
+
+    attachedObjects: [
+        SystemListDialog {
+            id: listDialog
+
+            title: qsTr("Pick value")
+
+            function execDialog(theMode) {
+                listDialog.clearList()
+
+		        for (var i = 0; i < 8; i++)
+		            listDialog.appendItem('' + i, true, i === theMode.octal)
+		            
+		        listDialog.exec()
+		        if (listDialog.result === SystemUiResult.ConfirmButtonSelection) {
+		            theMode.octal = listDialog.selectedIndices[0]
+		        }
+		            
+            }
+        }
+    ]
 }
