@@ -33,7 +33,7 @@ App::App(QObject *parent) : QObject(parent)
 	QCoreApplication::setOrganizationName(QLatin1String("BeBlue.org"));
 	QCoreApplication::setOrganizationDomain(QLatin1String("org.beblue.chmodfu"));
 	QCoreApplication::setApplicationName(QLatin1String("chmod-fu"));
-	QCoreApplication::setApplicationVersion(QLatin1String("1.1.0"));
+	QCoreApplication::setApplicationVersion(QLatin1String("1.1.1"));
 
 	qmlRegisterUncreatableType<bb::system::SystemUiResult>("org.beblue.chmodfu", 1, 0, "SystemUiResult", "Enum");
 	qmlRegisterType<bb::system::SystemListDialog>("org.beblue.chmodfu", 1, 0, "SystemListDialog");
