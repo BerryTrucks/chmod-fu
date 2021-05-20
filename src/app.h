@@ -20,7 +20,7 @@
 #include <QtCore/QMetaType>
 
 #include <bb/cascades/Event>
-#include <bb/cascades/UiObject>
+#include <bb/cascades/UIObject>
 #include <bb/cascades/Control>
 
 class App : public QObject
